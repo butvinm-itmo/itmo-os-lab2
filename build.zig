@@ -9,7 +9,7 @@ pub fn build(b: *std.Build) void {
 
     const exe = b.addExecutable(.{
         .name = "shell",
-        .root_source_file = b.path("src/shell.zig"),
+        .root_source_file = b.path("src/shell/shell.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -23,17 +23,17 @@ pub fn build(b: *std.Build) void {
         run_shell.addArgs(args);
     }
 
-    const run_shell_step = b.step("run", "Run the shell");
+    const run_shell_step = b.step("run_shell", "Run the shell");
     run_shell_step.dependOn(&run_shell.step);
 
     const unit_tests = b.addTest(.{
-        .root_source_file = b.path("src/tests.zig"),
+        .root_source_file = b.path("src/shell/tests.zig"),
         .target = target,
         .optimize = optimize,
     });
 
     const run_unit_tests = b.addRunArtifact(unit_tests);
 
-    const test_step = b.step("test", "Run unit tests");
+    const test_step = b.step("test_shell", "Run unit tests");
     test_step.dependOn(&run_unit_tests.step);
 }
