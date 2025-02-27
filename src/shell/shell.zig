@@ -12,7 +12,6 @@ pub fn main() !void {
     const stdin = std.io.getStdIn().reader();
     const stdout = std.io.getStdOut().writer();
     const stderr = std.io.getStdErr().writer();
-    _ = try stdout.write("shell session started\n");
 
     var exit = false;
     while (!exit) {
@@ -29,6 +28,11 @@ pub fn main() !void {
     try stdout.print("Bye!\n", .{});
 }
 
+const ExecResult = struct {
+    exit: bool, // set to true if user've requested to exit
+    // status:
+};
+
 fn execCmd(
     alloc: std.mem.Allocator,
     _: std.fs.File.Writer,
@@ -43,12 +47,22 @@ fn execCmd(
     if (pid == 0) {
         const exec_args = try command.toExecArgs(alloc);
         switch (std.posix.execvpeZ(exec_args.path, exec_args.child_argv, exec_args.envp)) {
-            std.posix.ExecveError.FileNotFound => try stderr.print("Executable not found\n", .{}),
+            std.posix.ExecveError.FileNotFound => try stderr.print("Executable not found: {s}\n", .{command.args[0]}),
+            std.posix.ExecveError.AccessDenied => try stderr.print("Access denied\n", .{}),
             else => try stderr.print("Unexpected error\n", .{}),
         }
+        std.process.abort();
     } else {
-        const status = std.os.linux.W.EXITSTATUS(std.posix.waitpid(pid, 0).status);
-        try stderr.print("Process exited with status code {}\n", .{status});
+        const st_time = std.time.nanoTimestamp();
+        const status = std.posix.waitpid(pid, 0).status;
+        const end_time = std.time.nanoTimestamp();
+        if (std.os.linux.W.IFEXITED(status)) {
+            const exec_time = @as(f64, @floatFromInt(end_time - st_time)) / std.time.ns_per_s;
+            try stderr.print(
+                "Process {d} exited with status code {} in {d} seconds\n",
+                .{ pid, std.os.linux.W.EXITSTATUS(status), exec_time },
+            );
+        }
     }
     return false;
 }
