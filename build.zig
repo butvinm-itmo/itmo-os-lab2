@@ -21,7 +21,7 @@ pub fn build(b: *std.Build) void {
     const test_step = b.step("test", "Run unit tests");
     
     const shell_tests = b.addTest(.{
-        .root_source_file = b.path("src/shell/tests.zig"),
+        .root_source_file = b.path("src/shell/shell.zig"),
         .target = target,
         .optimize = optimize,
     });
@@ -35,4 +35,12 @@ pub fn build(b: *std.Build) void {
     });
     const run_linreg_tests = b.addRunArtifact(linreg_tests);
     test_step.dependOn(&run_linreg_tests.step);
+    
+    const search_name_tests = b.addTest(.{
+        .root_source_file = b.path("src/algorithms/search_name.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+    const run_search_name_tests = b.addRunArtifact(search_name_tests);
+    test_step.dependOn(&run_search_name_tests.step);
 }

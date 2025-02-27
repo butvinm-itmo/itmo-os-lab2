@@ -28,11 +28,6 @@ pub fn main() !void {
     try stdout.print("Bye!\n", .{});
 }
 
-const ExecResult = struct {
-    exit: bool, // set to true if user've requested to exit
-    // status:
-};
-
 fn execCmd(
     alloc: std.mem.Allocator,
     _: std.fs.File.Writer,
@@ -65,4 +60,9 @@ fn execCmd(
         }
     }
     return false;
+}
+
+test {
+    _ = @import("cmd.zig");
+    _ = @import("parser.zig");
 }
