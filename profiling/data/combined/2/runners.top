@@ -1,0 +1,49 @@
+top - 15:05:12 up 1 day, 15:16,  1 user,  load average: 6.31, 10.04, 6.33
+Tasks: 2 total, 0 running, 2 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 20.6 us,  7.5 sy,  0.0 ni, 71.2 id,  0.0 wa,  0.0 hi,  0.6 si,  0.0 st 
+MiB Mem :  39813.2 total,  14464.7 free,   6719.8 used,  20765.6 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33093.4 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 397758 butvinm   20   0   34092    768    768 S 198.6   0.0   0:00.39 combine+
+ 397757 butvinm   20   0   34124    896    768 S 188.6   0.0   0:00.38 combine+
+
+top - 15:05:13 up 1 day, 15:16,  1 user,  load average: 6.29, 9.97, 6.33
+Tasks: 2 total, 0 running, 2 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 23.5 us,  7.3 sy,  0.0 ni, 68.5 id,  0.0 wa,  0.3 hi,  0.3 si,  0.0 st 
+MiB Mem :  39813.2 total,  14464.7 free,   6719.8 used,  20765.6 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33093.4 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 397757 butvinm   20   0   34828   1408    768 S 197.7   0.0   0:02.36 combine+
+ 397758 butvinm   20   0   34812   1280    768 S 196.7   0.0   0:02.36 combine+
+
+top - 15:05:14 up 1 day, 15:16,  1 user,  load average: 6.29, 9.97, 6.33
+Tasks: 2 total, 0 running, 2 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 23.9 us,  7.0 sy,  0.0 ni, 68.5 id,  0.0 wa,  0.3 hi,  0.3 si,  0.0 st 
+MiB Mem :  39813.2 total,  14464.7 free,   6719.8 used,  20765.6 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33093.4 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 397757 butvinm   20   0   35260   1792    768 S 198.7   0.0   0:04.35 combine+
+ 397758 butvinm   20   0   35292   1664    768 S 198.7   0.0   0:04.35 combine+
+
+top - 15:05:15 up 1 day, 15:16,  1 user,  load average: 6.29, 9.97, 6.33
+Tasks: 2 total, 0 running, 2 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 23.7 us,  8.2 sy,  0.0 ni, 67.1 id,  0.4 wa,  0.2 hi,  0.3 si,  0.0 st 
+MiB Mem :  39813.2 total,  14471.3 free,   6713.2 used,  20757.8 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33100.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 397757 butvinm   20   0   35820   2176    768 S 197.5   0.0   0:06.33 combine+
+ 397758 butvinm   20   0   35788   2048    768 S 197.5   0.0   0:06.33 combine+
+
+top - 15:05:16 up 1 day, 15:16,  1 user,  load average: 6.29, 9.97, 6.33
+Tasks: 2 total, 0 running, 2 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 22.7 us,  6.1 sy,  0.0 ni, 70.7 id,  0.1 wa,  0.3 hi,  0.2 si,  0.0 st 
+MiB Mem :  39813.2 total,  14471.3 free,   6713.2 used,  20757.8 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33100.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 397758 butvinm   20   0   36588   2816    768 S 198.7   0.0   0:08.32 combine+
+ 397757 butvinm   20   0   20228   2944    768 S 193.7   0.0   0:08.27 combine+

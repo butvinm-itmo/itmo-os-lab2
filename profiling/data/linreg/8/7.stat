@@ -1,0 +1,25 @@
+# started on Fri Feb 28 15:07:53 2025
+
+
+ Performance counter stats for process id '399432':
+
+         13,330.70 msec task-clock                       #    0.951 CPUs utilized             
+             1,354      context-switches                 #  101.570 /sec                      
+           199,386      cpu_atom/cache-misses/           #   19.16% of all cache refs           (98.45%)
+           272,706      cpu_core/cache-misses/           #   27.72% of all cache refs           (1.55%)
+         1,040,730      cpu_atom/cache-references/       #   78.070 K/sec                       (98.45%)
+           983,730      cpu_core/cache-references/       #   73.794 K/sec                       (1.55%)
+    48,800,402,038      cpu_atom/instructions/           #    3.24  insn per cycle              (98.45%)
+    80,391,451,128      cpu_core/instructions/           #    5.07  insn per cycle              (1.55%)
+    15,080,986,450      cpu_atom/cycles/                 #    1.131 GHz                         (98.45%)
+    15,845,424,472      cpu_core/cycles/                 #    1.189 GHz                         (1.55%)
+    14,099,046,728      cpu_atom/L1-dcache-loads/        #    1.058 G/sec                       (98.45%)
+    22,839,815,009      cpu_core/L1-dcache-loads/        #    1.713 G/sec                       (1.55%)
+           727,198      cpu_core/L1-dcache-load-misses/  #    0.00% of all L1-dcache accesses   (1.55%)
+           125,960      cpu_atom/LLC-loads/              #    9.449 K/sec                       (98.45%)
+           189,788      cpu_core/LLC-loads/              #   14.237 K/sec                       (1.55%)
+                41      cpu_atom/LLC-load-misses/        #    0.03% of all LL-cache accesses    (98.45%)
+            39,697      cpu_core/LLC-load-misses/        #   20.92% of all LL-cache accesses    (1.55%)
+
+      14.012409299 seconds time elapsed
+

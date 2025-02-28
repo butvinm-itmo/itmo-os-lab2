@@ -1,0 +1,119 @@
+top - 15:31:42 up 1 day, 15:42,  1 user,  load average: 22.22, 39.98, 34.06
+Tasks: 16 total, 0 running, 16 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 72.2 us, 27.8 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st 
+MiB Mem :  39813.2 total,  16246.6 free,   4824.2 used,  20434.6 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  34989.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 425913 butvinm   20   0   33996    896    768 S 147.4   0.0   0:00.31 combine+
+ 425909 butvinm   20   0   34028    896    768 S 138.2   0.0   0:00.31 combine+
+ 425911 butvinm   20   0   33980    896    768 S 129.0   0.0   0:00.29 combine+
+ 425912 butvinm   20   0   33916    768    768 S 129.0   0.0   0:00.23 combine+
+ 425932 butvinm   20   0   33948    768    768 S 110.6   0.0   0:00.25 combine+
+ 425934 butvinm   20   0   33980    896    768 S 110.6   0.0   0:00.27 combine+
+ 425910 butvinm   20   0   33948    768    768 S  92.1   0.0   0:00.19 combine+
+ 425924 butvinm   20   0   33932    768    768 S  92.1   0.0   0:00.17 combine+
+ 425930 butvinm   20   0   33948    768    768 S  92.1   0.0   0:00.18 combine+
+ 425921 butvinm   20   0   33932    768    768 S  82.9   0.0   0:00.17 combine+
+ 425933 butvinm   20   0   33948    768    768 S  82.9   0.0   0:00.18 combine+
+ 425939 butvinm   20   0   33948    768    768 S  82.9   0.0   0:00.17 combine+
+ 425931 butvinm   20   0   33916   2820    768 S  73.7   0.0   0:00.16 combine+
+ 425918 butvinm   20   0   33948    768    768 S  64.5   0.0   0:00.15 combine+
+ 425928 butvinm   20   0   33932    768    768 S  55.3   0.0   0:00.10 combine+
+ 425940 butvinm   20   0   33916    768    768 S  55.3   0.0   0:00.11 combine+
+
+top - 15:31:43 up 1 day, 15:42,  1 user,  load average: 23.33, 39.91, 34.08
+Tasks: 16 total, 0 running, 16 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 71.9 us, 27.7 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.3 hi,  0.1 si,  0.0 st 
+MiB Mem :  39813.2 total,  16246.6 free,   4824.2 used,  20434.6 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  34989.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 425912 butvinm   20   0   34108   1024    768 S 181.5   0.0   0:02.05 combine+
+ 425930 butvinm   20   0   34156    896    768 S 129.6   0.0   0:01.48 combine+
+ 425913 butvinm   20   0   34172   1024    768 S 125.7   0.0   0:01.57 combine+
+ 425909 butvinm   20   0   34316   1152    768 S 115.7   0.0   0:01.47 combine+
+ 425934 butvinm   20   0   34156   1024    768 S 114.7   0.0   0:01.42 combine+
+ 425911 butvinm   20   0   34108   1024    768 S  96.7   0.0   0:01.26 combine+
+ 425921 butvinm   20   0   34044    768    768 S  85.8   0.0   0:01.03 combine+
+ 425924 butvinm   20   0   34092    896    768 S  84.8   0.0   0:01.02 combine+
+ 425910 butvinm   20   0   34092    896    768 S  82.8   0.0   0:01.02 combine+
+ 425932 butvinm   20   0   34092    896    768 S  78.8   0.0   0:01.04 combine+
+ 425918 butvinm   20   0   34044    896    768 S  76.8   0.0   0:00.92 combine+
+ 425931 butvinm   20   0   34060   2820    768 S  76.8   0.0   0:00.93 combine+
+ 425933 butvinm   20   0   34092    896    768 S  76.8   0.0   0:00.95 combine+
+ 425939 butvinm   20   0   34092    896    768 S  74.8   0.0   0:00.92 combine+
+ 425940 butvinm   20   0   34012    768    768 S  70.8   0.0   0:00.82 combine+
+ 425928 butvinm   20   0   34028    896    768 S  68.8   0.0   0:00.79 combine+
+
+top - 15:31:45 up 1 day, 15:42,  1 user,  load average: 23.33, 39.91, 34.08
+Tasks: 16 total, 0 running, 16 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 74.0 us, 25.7 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.2 hi,  0.1 si,  0.0 st 
+MiB Mem :  39813.2 total,  16239.6 free,   4831.1 used,  20434.6 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  34982.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 425912 butvinm   20   0   34428   1280    768 S 181.9   0.0   0:03.88 combine+
+ 425934 butvinm   20   0   34492   1408    768 S 121.3   0.0   0:02.64 combine+
+ 425921 butvinm   20   0   34348   1152    768 S 120.3   0.0   0:02.24 combine+
+ 425913 butvinm   20   0   34332   1024    768 S 111.3   0.0   0:02.69 combine+
+ 425910 butvinm   20   0   34332   1152    768 S 107.3   0.0   0:02.10 combine+
+ 425930 butvinm   20   0   34396   1152    768 S 107.3   0.0   0:02.56 combine+
+ 425924 butvinm   20   0   34444   1280    768 S  99.4   0.0   0:02.02 combine+
+ 425918 butvinm   20   0   34188   1024    768 S  96.4   0.0   0:01.89 combine+
+ 425928 butvinm   20   0   34236   1024    768 S  82.5   0.0   0:01.62 combine+
+ 425909 butvinm   20   0   34492   1280    768 S  81.5   0.0   0:02.29 combine+
+ 425911 butvinm   20   0   34252   1024    768 S  81.5   0.0   0:02.08 combine+
+ 425940 butvinm   20   0   34188    896    768 S  78.5   0.0   0:01.61 combine+
+ 425931 butvinm   20   0   34284   2948    768 S  74.5   0.0   0:01.68 combine+
+ 425939 butvinm   20   0   34284   1152    768 S  73.6   0.0   0:01.66 combine+
+ 425933 butvinm   20   0   34284   1024    768 S  71.6   0.0   0:01.67 combine+
+ 425932 butvinm   20   0   34268   1152    768 S  69.6   0.0   0:01.74 combine+
+
+top - 15:31:46 up 1 day, 15:42,  1 user,  load average: 23.33, 39.91, 34.08
+Tasks: 16 total, 0 running, 16 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 72.2 us, 27.3 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.2 hi,  0.2 si,  0.0 st 
+MiB Mem :  39813.2 total,  16239.6 free,   4831.1 used,  20434.6 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  34982.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 425910 butvinm   20   0   34636   1408    768 S 133.6   0.0   0:03.44 combine+
+ 425940 butvinm   20   0   34540   1280    768 S 129.7   0.0   0:02.91 combine+
+ 425934 butvinm   20   0   34796   1664    768 S 117.7   0.0   0:03.82 combine+
+ 425921 butvinm   20   0   34620   1408    768 S 112.7   0.0   0:03.37 combine+
+ 425912 butvinm   20   0   34636   1536    768 S 110.7   0.0   0:04.99 combine+
+ 425918 butvinm   20   0   34428   1152    768 S 109.7   0.0   0:02.99 combine+
+ 425939 butvinm   20   0   34524   1280    768 S 103.7   0.0   0:02.70 combine+
+ 425928 butvinm   20   0   34492   1280    768 S  99.7   0.0   0:02.62 combine+
+ 425913 butvinm   20   0   34508   1280    768 S  95.7   0.0   0:03.65 combine+
+ 425930 butvinm   20   0   34588   1280    768 S  84.8   0.0   0:03.41 combine+
+ 425924 butvinm   20   0   34684   1408    768 S  82.8   0.0   0:02.85 combine+
+ 425933 butvinm   20   0   34476   1280    768 S  76.8   0.0   0:02.44 combine+
+ 425909 butvinm   20   0   34668   1536    768 S  75.8   0.0   0:03.05 combine+
+ 425932 butvinm   20   0   34492   1280    768 S  74.8   0.0   0:02.49 combine+
+ 425931 butvinm   20   0   34476   3076    768 S  71.8   0.0   0:02.40 combine+
+ 425911 butvinm   20   0   34428   1280    768 S  70.8   0.0   0:02.79 combine+
+
+top - 15:31:47 up 1 day, 15:42,  1 user,  load average: 23.33, 39.91, 34.08
+Tasks: 16 total, 0 running, 16 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s): 72.5 us, 27.0 sy,  0.0 ni,  0.0 id,  0.0 wa,  0.3 hi,  0.2 si,  0.0 st 
+MiB Mem :  39813.2 total,  16239.6 free,   4831.1 used,  20434.6 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  34982.1 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 425940 butvinm   20   0   34716   1408    768 S 127.5   0.0   0:04.20 combine+
+ 425921 butvinm   20   0   34764   1408    768 S 122.6   0.0   0:04.61 combine+
+ 425930 butvinm   20   0   34748   1408    768 S 121.6   0.0   0:04.64 combine+
+ 425918 butvinm   20   0   34588   1280    768 S 119.6   0.0   0:04.20 combine+
+ 425928 butvinm   20   0   34604   1280    768 S 116.6   0.0   0:03.80 combine+
+ 425910 butvinm   20   0   34732   1536    768 S 110.7   0.0   0:04.56 combine+
+ 425939 butvinm   20   0   34684   1408    768 S 108.7   0.0   0:03.80 combine+
+ 425913 butvinm   20   0   34620   1280    768 S  93.9   0.0   0:04.60 combine+
+ 425924 butvinm   20   0   34876   1792    768 S  92.9   0.0   0:03.79 combine+
+ 425912 butvinm   20   0   34732   1664    768 S  89.9   0.0   0:05.90 combine+
+ 425933 butvinm   20   0   34588   1408    768 S  81.0   0.0   0:03.26 combine+
+ 425934 butvinm   20   0   34892   1664    768 S  76.1   0.0   0:04.59 combine+
+ 425932 butvinm   20   0   34604   1408    768 S  66.2   0.0   0:03.16 combine+
+ 425909 butvinm   20   0   34764   1536    768 S  64.2   0.0   0:03.70 combine+
+ 425911 butvinm   20   0   34540   1408    768 S  64.2   0.0   0:03.44 combine+
+ 425931 butvinm   20   0   34572   3204    768 S  64.2   0.0   0:03.05 combine+

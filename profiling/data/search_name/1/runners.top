@@ -1,0 +1,44 @@
+top - 15:12:09 up 1 day, 15:23,  1 user,  load average: 1.96, 4.67, 5.19
+Tasks: 1 total, 1 running, 0 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s):  5.0 us,  3.8 sy,  0.0 ni, 90.6 id,  0.0 wa,  0.6 hi,  0.0 si,  0.0 st 
+MiB Mem :  39813.2 total,  14471.1 free,   6706.2 used,  20708.4 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33107.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 401398 butvinm   20   0    1392    896    640 R  99.2   0.0   0:00.19 search_+
+
+top - 15:12:10 up 1 day, 15:23,  1 user,  load average: 1.96, 4.67, 5.19
+Tasks: 1 total, 1 running, 0 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s):  4.2 us,  3.5 sy,  0.0 ni, 91.6 id,  0.0 wa,  0.3 hi,  0.3 si,  0.0 st 
+MiB Mem :  39813.2 total,  14471.1 free,   6706.2 used,  20708.4 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33107.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 401398 butvinm   20   0    2784   1792    640 R  97.9   0.0   0:01.17 search_+
+
+top - 15:12:11 up 1 day, 15:23,  1 user,  load average: 1.96, 4.67, 5.19
+Tasks: 1 total, 1 running, 0 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s):  4.4 us,  3.5 sy,  0.0 ni, 91.7 id,  0.0 wa,  0.2 hi,  0.3 si,  0.0 st 
+MiB Mem :  39813.2 total,  14478.1 free,   6699.3 used,  20708.4 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33114.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 401398 butvinm   20   0    3808   2944    640 R  98.9   0.0   0:02.16 search_+
+
+top - 15:12:12 up 1 day, 15:23,  1 user,  load average: 1.96, 4.67, 5.19
+Tasks: 1 total, 1 running, 0 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s):  7.5 us,  8.4 sy,  0.0 ni, 83.2 id,  0.0 wa,  0.4 hi,  0.4 si,  0.0 st 
+MiB Mem :  39813.2 total,  14478.1 free,   6699.3 used,  20708.4 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33114.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 401398 butvinm   20   0    4528   3456    640 R  97.8   0.0   0:03.14 search_+
+
+top - 15:12:13 up 1 day, 15:23,  1 user,  load average: 1.96, 4.67, 5.19
+Tasks: 1 total, 1 running, 0 sleep, 0 d-sleep, 0 stopped, 0 zombie
+%Cpu(s):  5.5 us,  4.8 sy,  0.0 ni, 89.0 id,  0.0 wa,  0.3 hi,  0.4 si,  0.0 st 
+MiB Mem :  39813.2 total,  14478.1 free,   6699.3 used,  20708.4 buff/cache     
+MiB Swap:   4096.0 total,   4096.0 free,      0.0 used.  33114.0 avail Mem 
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+ 401398 butvinm   20   0    5392   4352    640 R  98.8   0.0   0:04.13 search_+
