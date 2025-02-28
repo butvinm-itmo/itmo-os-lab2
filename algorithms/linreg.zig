@@ -23,6 +23,8 @@ pub fn LinReg(n: comptime_int) type {
     };
 }
 
+const tolerance = 1e-10;
+
 test {
     const n = 5;
     const model = LinReg(n).fit(
@@ -30,14 +32,14 @@ test {
         @Vector(n, f64){ 2, 3, 5, 7, 8 },
     );
 
-    try std.testing.expectApproxEqRel(0.2, model.predict(0), 1e-10);
-    try std.testing.expectApproxEqRel(1.8, model.predict(1), 1e-10);
-    try std.testing.expectApproxEqRel(3.4, model.predict(2), 1e-10);
-    try std.testing.expectApproxEqRel(5, model.predict(3), 1e-10);
-    try std.testing.expectApproxEqRel(6.6, model.predict(4), 1e-10);
-    try std.testing.expectApproxEqRel(8.2, model.predict(5), 1e-10);
-    try std.testing.expectApproxEqRel(9.8, model.predict(6), 1e-10);
-    try std.testing.expectApproxEqRel(11.4, model.predict(7), 1e-10);
-    try std.testing.expectApproxEqRel(13, model.predict(8), 1e-10);
-    try std.testing.expectApproxEqRel(14.6, model.predict(9), 1e-10);
+    try std.testing.expectApproxEqRel(0.2, model.predict(0), tolerance);
+    try std.testing.expectApproxEqRel(1.8, model.predict(1), tolerance);
+    try std.testing.expectApproxEqRel(3.4, model.predict(2), tolerance);
+    try std.testing.expectApproxEqRel(5, model.predict(3), tolerance);
+    try std.testing.expectApproxEqRel(6.6, model.predict(4), tolerance);
+    try std.testing.expectApproxEqRel(8.2, model.predict(5), tolerance);
+    try std.testing.expectApproxEqRel(9.8, model.predict(6), tolerance);
+    try std.testing.expectApproxEqRel(11.4, model.predict(7), tolerance);
+    try std.testing.expectApproxEqRel(13, model.predict(8), tolerance);
+    try std.testing.expectApproxEqRel(14.6, model.predict(9), tolerance);
 }

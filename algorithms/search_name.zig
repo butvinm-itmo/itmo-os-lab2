@@ -3,12 +3,12 @@ const fs = std.fs;
 
 /// Find files containing `name` in the filename.
 /// Search in the root path if specified, otherwise search in the current working directory.
-pub fn search_name(alloc: std.mem.Allocator, name: []const u8, root: ?[]const u8) !SearchIterator {
-    const root_dir = try open_root_dir(alloc, root);
+pub fn searchName(alloc: std.mem.Allocator, name: []const u8, root: ?[]const u8) !SearchIterator {
+    const root_dir = try openRootDir(alloc, root);
     return SearchIterator.init(alloc, name, root_dir);
 }
 
-fn open_root_dir(alloc: std.mem.Allocator, root: ?[]const u8) !fs.Dir {
+fn openRootDir(alloc: std.mem.Allocator, root: ?[]const u8) !fs.Dir {
     if (root) |root_path| {
         const real_root_path = try fs.realpathAlloc(alloc, root_path);
         defer alloc.free(real_root_path);
@@ -48,7 +48,7 @@ pub const SearchIterator = struct {
 };
 
 test "searh in cwd" {
-    var search = try search_name(std.testing.allocator, "build.zig", null);
+    var search = try searchName(std.testing.allocator, "build.zig", null);
     defer search.deinit();
 
     var file = try search.next();
@@ -62,7 +62,7 @@ test "searh in cwd" {
 }
 
 test "searh in provided root path" {
-    var search = try search_name(std.testing.allocator, ".zig", "src/algorithms");
+    var search = try searchName(std.testing.allocator, ".zig", "src/algorithms");
     defer search.deinit();
 
     var file = try search.next();

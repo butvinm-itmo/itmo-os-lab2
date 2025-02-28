@@ -54,7 +54,7 @@ const CmdParser = struct {
             self.cur = cur + 1;
 
             const val_start, const val_end = try self.parseString(&self.cur);
-            const env = try std.mem.join(self.alloc, "=", &[_][]const u8{ self.input[key_start..key_end], self.input[val_start..val_end] });
+            const env = try std.mem.join(self.alloc, "=", &.{ self.input[key_start..key_end], self.input[val_start..val_end] });
             errdefer self.alloc.free(env);
             try envs.append(env);
             self.skipWhitespaces(&self.cur);
@@ -119,8 +119,8 @@ test "empty" {
     const command = try parseCmd(std.testing.allocator, "");
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqual(cmd.Cmd{
-        .args = &[_][]const u8{},
-        .envs = &[_][]const u8{},
+        .args = &.{},
+        .envs = &.{},
     }, command);
 }
 
@@ -128,8 +128,8 @@ test "whitespaces" {
     const command = try parseCmd(std.testing.allocator, "           ");
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqual(cmd.Cmd{
-        .args = &[_][]const u8{},
-        .envs = &[_][]const u8{},
+        .args = &.{},
+        .envs = &.{},
     }, command);
 }
 
@@ -138,8 +138,8 @@ test "envs only" {
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqualDeep(
         cmd.Cmd{
-            .args = &[_][]const u8{},
-            .envs = &[_][]const u8{ "a=10", "b=20" },
+            .args = &.{},
+            .envs = &.{ "a=10", "b=20" },
         },
         command,
     );
@@ -150,8 +150,8 @@ test "args only" {
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqualDeep(
         cmd.Cmd{
-            .args = &[_][]const u8{ "ls", "./src" },
-            .envs = &[_][]const u8{},
+            .args = &.{ "ls", "./src" },
+            .envs = &.{},
         },
         command,
     );
@@ -162,8 +162,8 @@ test "envs and args" {
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqualDeep(
         cmd.Cmd{
-            .args = &[_][]const u8{ "ls", "./src" },
-            .envs = &[_][]const u8{ "a=10", "b=20" },
+            .args = &.{ "ls", "./src" },
+            .envs = &.{ "a=10", "b=20" },
         },
         command,
     );
@@ -174,8 +174,8 @@ test "whitespaces between envs and args" {
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqualDeep(
         cmd.Cmd{
-            .args = &[_][]const u8{ "ls", "./src" },
-            .envs = &[_][]const u8{ "a=10", "b=20" },
+            .args = &.{ "ls", "./src" },
+            .envs = &.{ "a=10", "b=20" },
         },
         command,
     );
@@ -186,8 +186,8 @@ test "quoted arg" {
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqualDeep(
         cmd.Cmd{
-            .args = &[_][]const u8{"hello"},
-            .envs = &[_][]const u8{},
+            .args = &.{"hello"},
+            .envs = &.{},
         },
         command,
     );
@@ -198,8 +198,8 @@ test "mixed quoted and unquoted args" {
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqualDeep(
         cmd.Cmd{
-            .args = &[_][]const u8{ "ls", "my file.txt" },
-            .envs = &[_][]const u8{},
+            .args = &.{ "ls", "my file.txt" },
+            .envs = &.{},
         },
         command,
     );
@@ -210,8 +210,8 @@ test "quoted env and arg" {
     defer command.deinit(std.testing.allocator);
     try std.testing.expectEqualDeep(
         cmd.Cmd{
-            .args = &[_][]const u8{"ls"},
-            .envs = &[_][]const u8{"a=10 20"},
+            .args = &.{"ls"},
+            .envs = &.{"a=10 20"},
         },
         command,
     );
