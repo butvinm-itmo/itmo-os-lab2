@@ -46,21 +46,25 @@ pub fn build(b: *std.Build) !void {
         test_step.dependOn(&run_search_name_tests.step);
     }
 
-    try addProfiling(b, target);
+    try addProfiling(b, target, optimize);
 }
 
 fn addProfiling(
     b: *std.Build,
     target: std.Build.ResolvedTarget,
+    optimize: std.builtin.OptimizeMode,
 ) !void {
     const profiling_step = b.step("profile", "Profile all algorithms");
 
+    const profile_dir_option = b.option([]const u8, "profile_dir", "Directory for profile data") orelse "profiling/data";
     const runners_option = b.option(usize, "runners", "Number of runners to use for profiling") orelse 4;
     const fits_option = b.option([]const u8, "fits", "Number of fits to run for linreg profiling") orelse "10000000";
     const predicts_option = b.option([]const u8, "predicts", "Number of predicts per fit for linreg profiling") orelse "100";
     const search_repeats_options = b.option([]const u8, "search_repeats", "Number of search repeats for search-name profiling") orelse "1000";
 
-    const profiling_data_dir = b.path("profiling/data-release");
+    const runners = try std.fmt.allocPrint(b.allocator, "{}", .{runners_option});
+
+    const profile_dir = b.path(profile_dir_option);
 
     const profile_linreg_step = b.step("profile-linreg", "Profile linreg");
     profiling_step.dependOn(profile_linreg_step);
@@ -69,22 +73,21 @@ fn addProfiling(
             .name = "linreg_runner",
             .root_source_file = b.path("profiling/linreg_runner.zig"),
             .target = target,
-            .optimize = .ReleaseFast,
+            .optimize = optimize,
         });
         linreg_runner_exe.root_module.addImport("linreg", b.createModule(.{
             .root_source_file = b.path("algorithms/linreg.zig"),
         }));
         b.installArtifact(linreg_runner_exe);
 
-        const linreg_profiling_data_dir = profiling_data_dir.path(b, "linreg");
+        const linreg_profile_dir = profile_dir.path(b, "linreg");
         const mk_profiling_data_dir_cmd = b.addSystemCommand(&.{ "mkdir", "-p" });
-        mk_profiling_data_dir_cmd.addDirectoryArg(linreg_profiling_data_dir);
+        mk_profiling_data_dir_cmd.addDirectoryArg(linreg_profile_dir);
         profile_linreg_step.dependOn(&mk_profiling_data_dir_cmd.step);
 
-        const runners_arg = try std.fmt.allocPrint(b.allocator, "{}", .{runners_option});
         const profile_linreg_cmd = b.addSystemCommand(&.{"profiling/profile_many.sh"});
-        profile_linreg_cmd.addDirectoryArg(linreg_profiling_data_dir.path(b, runners_arg));
-        profile_linreg_cmd.addArg(runners_arg);
+        profile_linreg_cmd.addDirectoryArg(linreg_profile_dir.path(b, runners));
+        profile_linreg_cmd.addArg(runners);
         profile_linreg_cmd.addArtifactArg(linreg_runner_exe);
         profile_linreg_cmd.addArg(fits_option); // fits
         profile_linreg_cmd.addArg(predicts_option); // predicts per fit
@@ -98,22 +101,21 @@ fn addProfiling(
             .name = "search_name_runner",
             .root_source_file = b.path("profiling/search_name_runner.zig"),
             .target = target,
-            .optimize = .ReleaseFast,
+            .optimize = optimize,
         });
         search_name_runner_exe.root_module.addImport("search_name", b.createModule(.{
             .root_source_file = b.path("algorithms/search_name.zig"),
         }));
         b.installArtifact(search_name_runner_exe);
 
-        const search_name_profiling_data_dir = profiling_data_dir.path(b, "search_name");
+        const search_name_profile_dir = profile_dir.path(b, "search_name");
         const mk_profiling_data_dir_cmd = b.addSystemCommand(&.{ "mkdir", "-p" });
-        mk_profiling_data_dir_cmd.addDirectoryArg(search_name_profiling_data_dir);
+        mk_profiling_data_dir_cmd.addDirectoryArg(search_name_profile_dir);
         profile_search_name_step.dependOn(&mk_profiling_data_dir_cmd.step);
 
-        const runners_arg = try std.fmt.allocPrint(b.allocator, "{}", .{runners_option});
         const profile_search_name_cmd = b.addSystemCommand(&.{"profiling/profile_many.sh"});
-        profile_search_name_cmd.addDirectoryArg(search_name_profiling_data_dir.path(b, runners_arg));
-        profile_search_name_cmd.addArg(runners_arg);
+        profile_search_name_cmd.addDirectoryArg(search_name_profile_dir.path(b, runners));
+        profile_search_name_cmd.addArg(runners);
         profile_search_name_cmd.addArtifactArg(search_name_runner_exe);
         profile_search_name_cmd.addArg(search_repeats_options); // repeats
         profile_search_name_step.dependOn(&profile_search_name_cmd.step);
@@ -126,7 +128,7 @@ fn addProfiling(
             .name = "combined_runner",
             .root_source_file = b.path("profiling/combined_runner.zig"),
             .target = target,
-            .optimize = .ReleaseFast,
+            .optimize = optimize,
         });
         combined_runner_exe.root_module.addImport("linreg", b.createModule(.{
             .root_source_file = b.path("algorithms/linreg.zig"),
@@ -136,15 +138,14 @@ fn addProfiling(
         }));
         b.installArtifact(combined_runner_exe);
 
-        const combined_profiling_data_dir = profiling_data_dir.path(b, "combined");
+        const combined_profile_dir = profile_dir.path(b, "combined");
         const mk_profiling_data_dir_cmd = b.addSystemCommand(&.{ "mkdir", "-p" });
-        mk_profiling_data_dir_cmd.addDirectoryArg(combined_profiling_data_dir);
+        mk_profiling_data_dir_cmd.addDirectoryArg(combined_profile_dir);
         profile_combined_step.dependOn(&mk_profiling_data_dir_cmd.step);
 
-        const runners_arg = try std.fmt.allocPrint(b.allocator, "{}", .{runners_option});
         const profile_combined_cmd = b.addSystemCommand(&.{"profiling/profile_many.sh"});
-        profile_combined_cmd.addDirectoryArg(combined_profiling_data_dir.path(b, runners_arg));
-        profile_combined_cmd.addArg(runners_arg);
+        profile_combined_cmd.addDirectoryArg(combined_profile_dir.path(b, runners));
+        profile_combined_cmd.addArg(runners);
         profile_combined_cmd.addArtifactArg(combined_runner_exe);
         profile_combined_cmd.addArg(fits_option); // fits
         profile_combined_cmd.addArg(predicts_option); // predicts per fit
