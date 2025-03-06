@@ -51,12 +51,20 @@ test "searh in cwd" {
     var search = try searchName(std.testing.allocator, "build.zig", null);
     defer search.deinit();
 
-    var file = try search.next();
-    try std.testing.expectEqualStrings("build.zig", file.?.basename);
+    var files = std.BufSet.init(std.testing.allocator);
+    defer files.deinit();
+
+    var file: ?fs.Dir.Walker.Entry = undefined;
 
     file = try search.next();
-    try std.testing.expectEqualStrings("build.zig.zon", file.?.basename);
-    
+    try files.insert(file.?.basename);
+
+    file = try search.next();
+    try files.insert(file.?.basename);
+
+    try std.testing.expect(files.contains("build.zig"));
+    try std.testing.expect(files.contains("build.zig.zon"));
+
     file = try search.next();
     try std.testing.expectEqual(null, file);
 }
@@ -65,12 +73,20 @@ test "searh in provided root path" {
     var search = try searchName(std.testing.allocator, ".zig", "./algorithms");
     defer search.deinit();
 
-    var file = try search.next();
-    try std.testing.expectEqualStrings("linreg.zig", file.?.basename);
+    var files = std.BufSet.init(std.testing.allocator);
+    defer files.deinit();
+
+    var file: ?fs.Dir.Walker.Entry = undefined;
 
     file = try search.next();
-    try std.testing.expectEqualStrings("search_name.zig", file.?.basename);
-    
+    try files.insert(file.?.basename);
+
+    file = try search.next();
+    try files.insert(file.?.basename);
+
+    try std.testing.expect(files.contains("linreg.zig"));
+    try std.testing.expect(files.contains("search_name.zig"));
+
     file = try search.next();
     try std.testing.expectEqual(null, file);
 }
