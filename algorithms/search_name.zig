@@ -62,7 +62,7 @@ test "searh in cwd" {
 }
 
 test "searh in provided root path" {
-    var search = try searchName(std.testing.allocator, ".zig", "src/algorithms");
+    var search = try searchName(std.testing.allocator, ".zig", "./algorithms");
     defer search.deinit();
 
     var file = try search.next();
