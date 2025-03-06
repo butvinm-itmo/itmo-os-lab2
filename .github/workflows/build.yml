@@ -33,7 +33,7 @@ jobs:
         run: zig build profile --release=fast -Dprofiles-data-dir=profiling/data -Dprofiling-processes=1,2,4
 
       - name: Upload profiling data artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: profiling-data
           path: profiling/data
