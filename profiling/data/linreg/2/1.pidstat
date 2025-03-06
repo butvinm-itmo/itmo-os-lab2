@@ -1,5 +1,0 @@
-Linux 6.6.74-1-MANJARO (butvinm-work) 	28/02/25 	_x86_64_	(16 CPU)
-
-15:08:31      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
-15:08:32     1000    400466   99.00    0.00    0.00    0.00   99.00     5  linreg_runner
-15:08:33     1000    400466  100.00    0.00    0.00    0.00  100.00     2  linreg_runner
