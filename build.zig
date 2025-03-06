@@ -3,17 +3,37 @@ const std = @import("std");
 pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
+
     const profiles_data_dir = b.path(b.option(
         []const u8,
         "profiles-data-dir",
         "Directory for profiling data",
     ) orelse "profiling/data");
+
     const profiling_processes = b.option(
         []const u8,
         "profiling-processes",
         "Comma separated list of processes amount to run profiling on, e.g.: 1,4,8",
     ) orelse "1,2,4,8,16";
     var processes_iter = std.mem.splitScalar(u8, profiling_processes, ',');
+
+    const profile_linreg = b.option(
+        bool,
+        "profile-linreg",
+        "Enable or disable linreg algorithm profiling",
+    ) orelse true;
+    
+    const profile_search_name = b.option(
+        bool,
+        "profile-search-name",
+        "Enable or disable search-name algorithm profiling",
+    ) orelse true;
+    
+    const profile_combined = b.option(
+        bool,
+        "profile-combined",
+        "Enable or disable combined algorithms profiling",
+    ) orelse true;
 
     const shell_exe = b.addExecutable(.{
         .name = "shell",
@@ -50,6 +70,15 @@ pub fn build(b: *std.Build) !void {
     });
     search_name_runner_exe.root_module.addImport("search_name", search_name_mod);
 
+    const combined_runner_exe = b.addExecutable(.{
+        .name = "combined_runner",
+        .root_source_file = b.path("profiling/combined_runner.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+    combined_runner_exe.root_module.addImport("linreg", linreg_mod);
+    combined_runner_exe.root_module.addImport("search_name", search_name_mod);
+
     const run_shell_step = b.step("run-shell", "Run the shell");
     const run_shell = b.addRunArtifact(shell_exe);
     run_shell_step.dependOn(&run_shell.step);
@@ -76,7 +105,7 @@ pub fn build(b: *std.Build) !void {
     const search_name_repeats = "1000";
     while (processes_iter.next()) |processes| {
         const processes_number = try std.fmt.parseInt(usize, processes, 10);
-        profile_step.dependOn(addProfiling(
+        if (profile_linreg) profile_step.dependOn(addProfiling(
             b,
             profiles_data_dir,
             "linreg",
@@ -84,13 +113,21 @@ pub fn build(b: *std.Build) !void {
             linreg_runner_exe,
             &.{ linreg_fits, linreg_predicts_per_fit },
         ));
-        profile_step.dependOn(addProfiling(
+        if (profile_search_name) profile_step.dependOn(addProfiling(
             b,
             profiles_data_dir,
             "search-name",
             processes_number,
             search_name_runner_exe,
             &.{search_name_repeats},
+        ));
+        if (profile_combined) profile_step.dependOn(addProfiling(
+            b,
+            profiles_data_dir,
+            "combined",
+            processes_number,
+            combined_runner_exe,
+            &.{ linreg_fits, linreg_predicts_per_fit, search_name_repeats },
         ));
     }
 }
